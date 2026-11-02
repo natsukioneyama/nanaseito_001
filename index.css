@@ -1,0 +1,141 @@
+/* index.html. overview.html keeps its own overview.css.
+ * Lightbox rules near the bottom are copied from overview.css (same look/behaviour). */
+:root {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #000; --bg: #fff; background: var(--bg); font-size: 14px;
+  --edge: 24px;
+  /* Header type: Helvetica-style name / profession (tune size and weight here) */
+  --brand-font-weight: 400;
+  --brand-name-size: 28px;
+  --brand-role-size: 16px;
+  --nav-size: 13px;
+  --header-pad-top: max(18px, env(safe-area-inset-top));
+  --header-pad-bottom: 12px;
+  --header-h: calc(var(--header-pad-top) + (var(--brand-name-size) + var(--brand-role-size)) * 1.2 + var(--header-pad-bottom));
+  /* Body text (INFO) */
+  --body-size: 19px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, a { color: inherit; font: inherit; -webkit-tap-highlight-color: transparent; }
+button { padding: 0; border: 0; background: none; cursor: pointer; appearance: none; -webkit-appearance: none; }
+a { text-decoration: none; }
+button:focus-visible, a:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+.no-ring:focus-visible { outline: none; }
+[hidden] { display: none !important; }
+h1, h2 { margin: 0; font: inherit; }
+
+/* Fixed frosted header: same treatment as overview.css .header-bg */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 30;
+  height: var(--header-h);
+  padding: var(--header-pad-top) max(var(--edge), env(safe-area-inset-right)) var(--header-pad-bottom) max(var(--edge), env(safe-area-inset-left));
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+  color: #000;
+  background: rgba(255, 255, 255, 0.555);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+}
+.site-brand {
+  font-weight: var(--brand-font-weight); line-height: 1.2;
+}
+.site-name { display: block; font-size: var(--brand-name-size); }
+.site-role { display: block; font-size: var(--brand-role-size); }
+.site-nav { display: flex; gap: 10px; font-size: var(--nav-size); line-height: 1.2; white-space: nowrap; }
+
+/* FEATURED PROJECT
+ * One caption (.fp-rail) for the whole section sticks on the left while the projects
+ * scroll (desktop/tablet: mid-screen; mobile: below the header, see media query);
+ * index.js swaps its text per project. Images sit in an asymmetric
+ * right-hand stack: main image right-aligned, remaining images in a row below. */
+.featured { display: grid; padding-top: calc(var(--header-h) + 8px); }
+.fp-rail, .fp-projects { grid-area: 1 / 1; min-width: 0; }
+.fp-rail { justify-self: start; width: 30%; padding-left: max(var(--edge), env(safe-area-inset-left)); pointer-events: none; }
+.fp-rail .fp-caption { position: sticky; top: calc(50vh - 28px); }
+.fp-caption { font-size: 13px; line-height: 1.45; text-transform: uppercase; }
+.fp-caption span { display: block; }
+.fp-caption .fp-credit { font-size: 11px; text-transform: none; }
+.fp-project + .fp-project { margin-top: 160px; }
+.fp-stack { width: 55.7%; margin-left: auto; margin-right: 13.2%; }
+.fp-item { display: block; width: 100%; }
+.fp-item img, .fp-item video { display: block; width: 100%; height: auto; }
+.fp-main { width: 55.9%; margin-left: auto; }
+.fp-row { display: flex; align-items: flex-start; margin-top: 14px; }
+.fp-row .fp-item { min-width: 0; }
+/* layout: 'side-by-side' (featured-data.js): the two images form the only row */
+.fp-project--side .fp-row { margin-top: 0; gap: 14px; }
+
+/* INFO: text in the right-hand column (two-column grid) */
+.text-section {
+  display: grid; grid-template-columns: 41% minmax(0, 1fr); align-items: center;
+  padding: 0 15% 0 max(var(--edge), env(safe-area-inset-left));
+}
+.info-section { margin-top: 260px; padding-bottom: 160px; }
+/* No INFO label: keep the text in the right-hand column */
+.info-section .body-text { grid-column: 2; }
+.info-contact { margin-top: 3em; }
+.body-text {
+  font-size: var(--body-size); line-height: 1.6; text-align: left;
+}
+.body-text p { margin: 0 0 1em; }
+.body-text p:last-child { margin-bottom: 0; }
+.body-text a { text-decoration: none; }
+.body-text strong { font-weight: 700; }
+
+/* Lightbox - copied from overview.css. The page header stays above it (z-index 30). */
+.overlay { position: fixed; inset: 0; z-index: 20; background: rgba(245,245,245,.72); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
+#modal { touch-action: none; overscroll-behavior-y: none; }
+#modal { background: #FFFFFF; }
+.stage { position: absolute; inset: var(--header-h) 30px 54px; overflow: hidden; touch-action: none; }
+.modal-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; user-select: none; -webkit-user-select: none; }
+.modal-footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 9px max(var(--edge), env(safe-area-inset-right)) max(9px, env(safe-area-inset-bottom)) max(var(--edge), env(safe-area-inset-left)); min-height: 46px; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 11px; }
+.modal-footer button { font-size: 13px; min-width: 44px; min-height: 44px; text-align: right; }
+.caption { line-height: 1.25; min-height: 30px; }
+.caption span { display: block; }
+
+/* Mobile: compact header; per-project caption beside the main image instead of the sticky rail */
+@media (max-width: 767px) {
+  :root {
+    --edge: 20px;
+    --brand-name-size: 18px;
+    --brand-role-size: 13px;
+    --nav-size: 10px;
+    --header-pad-top: max(12px, env(safe-area-inset-top));
+    --header-pad-bottom: 8px;
+    --body-size: 14px;
+  }
+  .featured { padding-top: calc(var(--header-h) + 40px); }
+  .fp-project { display: grid; grid-template-columns: minmax(0, 1fr) 52%; padding-right: 10px; }
+  .fp-project + .fp-project { margin-top: 100px; }
+  .fp-stack { display: contents; }
+  /* Rail caption pinned where the first project's caption starts (header + 40px), drawn
+     above the images (z-index 1, still below the header's 30). Neither .fp-rail nor its
+     ancestors form a stacking context, so the difference blend reaches the photos:
+     black on white, inverted over the image. */
+  .fp-rail .fp-caption {
+    top: calc(var(--header-h) + 40px); z-index: 1;
+    padding-top: 6px;
+    font-size: 28px; line-height: 1.35; white-space: nowrap;
+    color: #fff; mix-blend-mode: difference;
+  }
+  .fp-rail .fp-caption .fp-credit { font-size: inherit; }
+  .fp-main { grid-column: 2; grid-row: 1; width: 100%; }
+  .fp-row { grid-column: 1 / -1; margin: 4px 0 0 10%; gap: 12px; }
+  .fp-project--side .fp-row { margin-top: 0; gap: 12px; }
+  .text-section { display: block; padding: 0 var(--edge); }
+  .info-section { margin-top: 200px; padding-bottom: 120px; }
+  .stage { inset: var(--header-h) 0 64px; }
+}
+
+
+.site-footer {
+  padding: 60px 24px 24px;
+  font-size: 11px;
+  font-weight: 400;
+  color: #777;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .site-footer {
+    padding: 60px 20px 20px;
+  }
+}

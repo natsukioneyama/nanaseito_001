@@ -2,112 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nanase Ito — Makeup Artist</title>
-  <meta name="description" content="Nanase Ito is a Japanese makeup artist based in New York.">
-  <link rel="preconnect" href="https://images.squarespace-cdn.com">
-  <style>
-    :root { --ink:#101010; --paper:#f4f2ed; --line:rgba(16,16,16,.22); }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; background:var(--paper); color:var(--ink); font-family:Arial, Helvetica, sans-serif; }
-    a { color:inherit; text-decoration:none; }
-    button { font:inherit; color:inherit; }
-    header { position:fixed; inset:0 0 auto; z-index:20; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:22px 28px; mix-blend-mode:difference; color:#fff; }
-    .brand { font-size:18px; font-weight:700; letter-spacing:-.03em; text-transform:uppercase; }
-    nav { display:flex; gap:24px; font-size:13px; text-transform:uppercase; }
-    .place { justify-self:end; font-size:13px; text-transform:uppercase; }
-    .hero { position:relative; height:100svh; min-height:640px; overflow:hidden; background:#111; }
-    .slides { height:100%; display:flex; transition:transform .85s cubic-bezier(.77,0,.18,1); }
-    .slide { flex:0 0 100%; position:relative; }
-    .slide img { width:100%; height:100%; object-fit:cover; display:block; filter:saturate(.92); }
-    .slide:nth-child(2) img { object-position:50% 38%; }
-    .slide:nth-child(3) img { object-position:50% 32%; }
-    .shade { position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.18),transparent 45%,rgba(0,0,0,.12)); pointer-events:none; }
-    .hero-title { position:absolute; z-index:3; left:28px; bottom:28px; color:#fff; font-family:Georgia, 'Times New Roman', serif; font-weight:400; font-size:clamp(62px,12vw,180px); line-height:.78; letter-spacing:-.07em; }
-    .counter { position:absolute; z-index:4; right:28px; bottom:30px; color:#fff; font-size:13px; letter-spacing:.08em; }
-    .hero-controls { position:absolute; z-index:5; inset:76px 0 0; display:grid; grid-template-columns:1fr 1fr; }
-    .hero-controls button { border:0; background:transparent; cursor:pointer; color:transparent; }
-    .work { padding:120px 28px 48px; }
-    .section-head { display:grid; grid-template-columns:1fr 1fr; padding-bottom:18px; border-bottom:1px solid var(--line); margin-bottom:70px; font-size:13px; text-transform:uppercase; }
-    .section-head span:last-child { text-align:right; }
-    .grid { display:grid; grid-template-columns:repeat(12,1fr); gap:80px 18px; align-items:start; }
-    figure { margin:0; }
-    figure img { width:100%; display:block; background:#ddd; }
-    figcaption { display:flex; justify-content:space-between; gap:16px; padding-top:10px; font-size:12px; text-transform:uppercase; }
-    .p1 { grid-column:1 / span 7; }
-    .p2 { grid-column:9 / span 4; margin-top:16vw; }
-    .p3 { grid-column:4 / span 5; }
-    .p4 { grid-column:9 / span 4; margin-top:-5vw; }
-    .p5 { grid-column:1 / span 6; margin-top:6vw; }
-    .about { display:grid; grid-template-columns:1fr 2fr 1fr; gap:18px; padding:160px 28px 120px; }
-    .eyebrow { font-size:13px; text-transform:uppercase; }
-    .bio { font-family:Georgia, 'Times New Roman', serif; font-size:clamp(30px,4vw,58px); line-height:1.04; letter-spacing:-.035em; }
-    footer { border-top:1px solid var(--line); margin:0 28px; padding:20px 0 28px; display:flex; justify-content:space-between; font-size:12px; text-transform:uppercase; }
-    @media (max-width:700px) {
-      header { grid-template-columns:1fr auto; padding:18px; }
-      header nav { display:none; }
-      .place { font-size:12px; }
-      .hero { min-height:560px; }
-      .hero-title { left:18px; bottom:24px; font-size:20vw; }
-      .counter { right:18px; bottom:19px; }
-      .work { padding:85px 18px 28px; }
-      .section-head { grid-template-columns:1fr auto; margin-bottom:42px; }
-      .grid { display:block; }
-      figure { width:100%; margin:0 0 58px !important; }
-      figure:nth-child(even) { width:78%; margin-left:auto !important; }
-      .about { grid-template-columns:1fr; padding:80px 18px; gap:30px; }
-      .bio { font-size:34px; }
-      footer { margin:0 18px; }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Nanase Ito, Japanese makeup artist based in New York.">
+  <title>NANASE ITO — Makeup artist</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="portfolio-data.js" defer></script>
+  <script src="featured-data.js" defer></script>
+  <script src="index.js" defer></script>
 </head>
 <body>
-  <header>
-    <a class="brand" href="#top">Nanase Ito</a>
-    <nav><a href="#work">Work</a><a href="#about">About</a><a href="mailto:itonanase11077@gmail.com">Contact</a></nav>
-    <span class="place">New York · Paris</span>
+  <header class="site-header">
+    <div class="site-brand">
+      <span class="site-name">Nanase Ito</span>
+      <span class="site-role">Makeup artist</span>
+    </div>
+    <nav class="site-nav" aria-label="Site">
+      <a href="overview.html">OVERVIEW</a>
+      <a href="mailto:itonanase11077@gmail.com">CONTACT</a>
+    </nav>
   </header>
 
-  <main id="top">
-    <section class="hero" aria-label="Featured work">
-      <div class="slides">
-        <div class="slide"><img src="https://images.squarespace-cdn.com/content/v1/6705bab0c13f155f43c65a9a/87ce62e5-4404-4b82-a5b9-303808db3ea6/chloe%2B%289%29-2.jpeg" alt="Beauty editorial with sculpted metallic hair"></div>
-        <div class="slide"><img src="https://images.squarespace-cdn.com/content/v1/6705bab0c13f155f43c65a9a/ef1202eb-2fb5-4d88-b9f0-7d915e06c756/IMG_2988.jpeg" alt="Red graphic eye makeup editorial"></div>
-        <div class="slide"><img src="https://images.squarespace-cdn.com/content/v1/6705bab0c13f155f43c65a9a/e3871aca-f01a-4595-9a8e-7752eb42dacd/IMG_6322.JPG" alt="Dazed Beauty portrait"></div>
-      </div>
-      <div class="shade"></div>
-      <h1 class="hero-title">Makeup<br>Artist</h1>
-    
-      <div class="hero-controls"><button type="button" aria-label="Previous image" data-dir="-1">Previous</button><button type="button" aria-label="Next image" data-dir="1">Next</button></div>
+  <main id="page">
+    <!-- Projects come from featured-data.js (rendered by index.js). -->
+    <section id="featured" class="featured" aria-label="Featured project">
+      <div class="fp-rail"><div id="fp-caption" class="fp-caption" aria-live="polite"></div></div>
+      <div id="fp-projects" class="fp-projects"></div>
     </section>
 
-    <section class="work" id="work">
-      <div class="section-head"><span>Selected work</span><span>2026</span></div>
-      <div class="grid">
-        <figure class="p1"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/6705bab0c13f155f43c65a9a/87ce62e5-4404-4b82-a5b9-303808db3ea6/chloe%2B%289%29-2.jpeg" alt="Teeth Magazine editorial"><figcaption><span>Teeth Magazine</span></figcaption></figure>
-        <figure class="p2"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/6705bab0c13f155f43c65a9a/d8fe0be6-64a1-47eb-9e00-65406b2ce087/IMG_0883.JPG" alt="i-D beauty editorial"><figcaption><span>i-D</span></figcaption></figure>
-        <figure class="p3"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/6705bab0c13f155f43c65a9a/ef1202eb-2fb5-4d88-b9f0-7d915e06c756/IMG_2988.jpeg" alt="Parfois campaign"><figcaption><span>Parfois</span></figcaption></figure>
-        <figure class="p4"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/6705bab0c13f155f43c65a9a/119b6da4-0183-445a-9e0c-c8766646e781/IMG_0460.JPG" alt="Mugler backstage portrait"><figcaption><span>Mugler</span></figcaption></figure>
-        <figure class="p5"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/6705bab0c13f155f43c65a9a/e3871aca-f01a-4595-9a8e-7752eb42dacd/IMG_6322.JPG" alt="Dazed Beauty editorial"><figcaption><span>Dazed Beauty</span></figcaption></figure>
+    <section id="about" class="text-section info-section" aria-label="Info">
+      <div class="body-text">
+        <p>Nanase is a Japanese makeup artist based in NY. After training in makeup in Japan and gaining over six years of experience working in Tokyo, she moved to NYC in 2019 to expand her career. Inspired by her early love of painting, she approaches makeup as a form of creative expression, combining technical precision with artistic vision.</p>
+        <p>Since moving to New York, Nanase has worked on a wide variety of projects, including fashion shoots, runway shows, magazine editorials, commercial campaigns, and photo/video productions. Her work blends Japanese aesthetics with the dynamic energy of New York and Paris, resulting in distinctive, tailored looks for her clients.</p>
+        <div class="info-contact">
+          <p><strong>Email</strong>: <a href="mailto:itonanase11077@gmail.com">itonanase11077@gmail.com</a></p>
+          <!-- TODO: link to the Instagram profile once its URL is confirmed. -->
+          <p><strong>Instagram</strong>: <a href="https://www.instagram.com/nanaseitomakeup/" target="_blank" rel="noopener noreferrer">@nanaseitomakeup</a></p>
+        </div>
       </div>
-    </section>
-
-    <section class="about" id="about">
-      <span class="eyebrow">About</span>
-      <div class="bio">Nanase Ito is a Japanese makeup artist based in New York. Her work brings technical precision to expressive, image-led beauty.</div>
     </section>
   </main>
-  <footer><span>© 2026</span></footer>
-  <script>
-    const rail=document.querySelector('.slides');
-    const count=document.querySelector('.counter b');
-    const total=3;
-    let index=0;
-    function go(step){ index=(index+step+total)%total; rail.style.transform=`translateX(-${index*100}%)`; count.textContent=String(index+1).padStart(2,'0'); }
-    document.querySelectorAll('.hero-controls button').forEach(button=>button.addEventListener('click',()=>go(Number(button.dataset.dir))));
-    let timer=setInterval(()=>go(1),5000);
-    document.querySelector('.hero').addEventListener('pointerenter',()=>clearInterval(timer));
-  </script>
+
+  <footer class="site-footer">
+  © 2026 Nanase Ito
+  </footer>
+
+  <section id="modal" class="overlay" role="dialog" aria-modal="true" aria-label="Portfolio media viewer" hidden>
+    <div id="stage" class="stage"></div>
+    <div class="modal-footer"><div id="modal-caption" class="caption" aria-live="polite"></div><button id="modal-close" aria-label="Close media viewer">&lt;&lt;</button></div>
+  </section>
 </body>
 </html>

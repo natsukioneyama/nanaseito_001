@@ -1,0 +1,104 @@
+:root { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #000; --bg: #fff; background: var(--bg); font-size: 14px; --edge: 14px; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, a { color: inherit; font: inherit; -webkit-tap-highlight-color: transparent; }
+button { padding: 0; border: 0; background: none; cursor: pointer; appearance: none; -webkit-appearance: none; }
+a { text-decoration: none; }
+button:focus-visible, a:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+.no-ring:focus-visible { outline: none; }
+[hidden] { display: none !important; }
+/* Nanase header: same design and values as index.css .site-header (name / profession
+   in two rows top-left, nav top-right, frosted band). Element ids/classes are kept
+   because overview.js inerts #brand and .index-header-nav while the Lightbox is open.
+   --header-edge is the header's own side margin; --edge stays the grid's. */
+:root {
+  --header-edge: 24px;
+  --brand-font-weight: 400;
+  --brand-name-size: 28px;
+  --brand-role-size: 16px;
+  --nav-size: 13px;
+  --header-top: max(18px, env(safe-area-inset-top));
+  --header-pad-bottom: 12px;
+  --header-height: calc(var(--header-top) + (var(--brand-name-size) + var(--brand-role-size)) * 1.2 + var(--header-pad-bottom));
+  --grid-top: calc(var(--header-height) + 20px);
+}
+/* index / overview / modal 共通のブランド表記（Nanase: 黒文字、difference blendは不使用） */
+.brand, .modal-brand {
+  position: fixed;
+  left: max(var(--header-edge), env(safe-area-inset-left));
+  top: var(--header-top);
+  text-align: left;
+  line-height: 1.2;
+  font-weight: var(--brand-font-weight);
+  font-style: normal;
+  z-index: 10;
+  padding-top: 0;
+}
+.brand { color: #000; }
+/* Nanase: full-width frosted header band behind .brand + .index-header-nav */
+.header-bg {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9;
+  height: var(--header-height);
+  background: rgba(255, 255, 255, 0.555);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  pointer-events: none;
+}
+
+/* Nanase: name over profession (two rows) */
+.brand-line { display: block; font-size: var(--brand-name-size); }
+.brand-line + .brand-line { font-size: var(--brand-role-size); }
+/* Nanase: header nav top-right, bottom-aligned with the profession line */
+.index-header-nav {
+  display: flex; gap: 10px;
+  position: fixed; z-index: 10; color: #000;
+  right: max(var(--header-edge), env(safe-area-inset-right));
+  top: calc(var(--header-height) - var(--header-pad-bottom) - var(--nav-size) * 1.2);
+  font-size: var(--nav-size); line-height: 1.2; white-space: nowrap;
+  font-weight: normal;
+}
+
+#index-modal-caption {
+  font-size: 10px;
+}
+
+#overview { padding: var(--grid-top) var(--edge) 64px; }
+#grid { position: relative; }
+.jl-item { display: block; margin: 0; }
+/* hoverの拡大はimg/video側で行う。wrapper自体のサイズは固定し、hover判定の境界がズレないようにする */
+.jl-item img, .jl-item video { width: 100%; height: 100%; object-fit: contain; display: block; transform-origin: center; transition: transform 180ms ease; }
+.jl-item:focus-visible { z-index: 2; }
+.jl-item:focus-visible img, .jl-item:focus-visible video { transform: scale(1.065); }
+.jl-item.selected { z-index: 2; }
+.jl-item.selected img, .jl-item.selected video { transform: scale(0.85); }
+/* hover-groupはoverview.jsが同一project内の全thumbnailに付与。タッチのtap-to-previewにも使うためmedia queryで絞らない */
+.jl-item.hover-group { z-index: 2; }
+.jl-item.hover-group img, .jl-item.hover-group video { transform: scale(0.85); }
+.bottom-nav, .modal-footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 9px max(var(--edge), env(safe-area-inset-right)) max(9px, env(safe-area-inset-bottom)) max(var(--edge), env(safe-area-inset-left)); min-height: 46px; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size:11px;   text-transform: uppercase;}
+.bottom-nav { z-index: 5; background: var(--bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.bottom-nav[inert], .brand[inert], .brand[inert] ~ .header-bg { visibility: hidden; }
+.caption { line-height: 1.25; min-height: 30px; }
+.caption span { display: block; }
+
+.overlay { position: fixed; inset: 0; z-index: 20; background: rgba(245,245,245,.72); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
+/* #modalは横drag操作のみのため縦scrollを無効化 */
+#modal { touch-action: none; overscroll-behavior-y: none; }
+/* Nanase: fully opaque white lightbox background (overrides .overlay translucency) */
+#modal { background: #FFFFFF; }
+.stage { position: absolute; inset: 48px 30px 54px; overflow: hidden; touch-action: none; }
+.modal-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; user-select: none; -webkit-user-select: none; }
+.modal-footer button { font-size: 22px; min-width: 44px; min-height: 44px; text-align: right; }
+@media (max-width: 767px) {
+  :root { --edge: 10px; font-size: 14px; }
+  :root {
+    --header-edge: 20px;
+    --brand-name-size: 18px;
+    --brand-role-size: 13px;
+    --nav-size: 10px;
+    --header-top: max(12px, env(safe-area-inset-top));
+    --header-pad-bottom: 8px;
+  }
+  .stage { inset: 48px 0 64px; }
+}
+
+/* reduced motion設定時はhoverのscale transitionを無効化 */
+@media (prefers-reduced-motion: reduce) { .jl-item img, .jl-item video { transition: none; } }
