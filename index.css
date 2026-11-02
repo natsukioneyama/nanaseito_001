@@ -31,7 +31,7 @@ h1, h2 { margin: 0; font: inherit; }
   padding: var(--header-pad-top) max(var(--edge), env(safe-area-inset-right)) var(--header-pad-bottom) max(var(--edge), env(safe-area-inset-left));
   display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
   color: #000;
-  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.555);
   backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
 }
 .site-brand {
