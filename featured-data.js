@@ -10,6 +10,8 @@
 window.FEATURED_PROJECTS = [
   { id: 'dazed-beauty', media: [1, 0, 2] }, // 3枚
   { id: 'teeth-magazine', media: [0, 1]}, // 2枚・横並び
-  { id: 'mugler', media: [1] },               // 1枚
-  { id: 'supreme-lookbook', media: [0, 1],layout: 'side-by-side'  }  
+  { id: 'mugler', media: [1] },    // 1枚              
+  { id: 'supreme-lookbook', media: [0, 1],layout: 'side-by-side'  },
+  { id: 'the-face-pusha-t', media: [0] }  
+
 ];

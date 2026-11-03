@@ -29,19 +29,6 @@ window.PORTFOLIO_PROJECTS = [
     ]
   },
   {
-    "id": "la-garconnes",
-    "category": "overview",
-    "title": "LA GARÇONNES",
-    "line1": "Sophia Aerts",
-    "line2": "",
-    "media": [
-      { "type": "image", "thumb": "thmbs/la-garconnes/01.webp", "full": "img/la-garconnes/01.webp", "alt": "LA GARÇONNES", "width": 233, "height": 350, "dataW": 800, "dataH": 1200 },
-      { "type": "image", "thumb": "thmbs/la-garconnes/02.webp", "full": "img/la-garconnes/02.webp", "alt": "LA GARÇONNES", "width": 235, "height": 350, "dataW": 804, "dataH": 1200 },
-      { "type": "image", "thumb": "thmbs/la-garconnes/03.webp", "full": "img/la-garconnes/03.webp", "alt": "LA GARÇONNES", "width": 237, "height": 350, "dataW": 812, "dataH": 1200 },
-      { "type": "image", "thumb": "thmbs/la-garconnes/04.webp", "full": "img/la-garconnes/04.webp", "alt": "LA GARÇONNES", "width": 235, "height": 350, "dataW": 806, "dataH": 1200 }
-    ]
-  },
-  {
     "id": "id-magazine",
     "category": "overview",
     "title": "iD MAGAZINE",
@@ -54,6 +41,29 @@ window.PORTFOLIO_PROJECTS = [
       { "type": "image", "thumb": "thmbs/id-magazine/04.webp", "full": "img/id-magazine/04.webp", "alt": "iD MAGAZINE", "width": 280, "height": 350, "dataW": 960, "dataH": 1200 }
     ]
   },
+    {
+    "id": "faddy-magazine",
+    "category": "overview",
+    "title": "FADDY MAGAZINE",
+    "line1": "Tugan Temizkan",
+    "line2": "",
+    "media": [
+      { "type": "image", "thumb": "thmbs/faddy-magazine/01.webp", "full": "img/faddy-magazine/01.webp", "alt": "FADDY MAGAZINE", "width": 247, "height": 350, "dataW": 848, "dataH": 1200 },
+      { "type": "image", "thumb": "thmbs/faddy-magazine/02.webp", "full": "img/faddy-magazine/02.webp", "alt": "FADDY MAGAZINE", "width": 247, "height": 350, "dataW": 848, "dataH": 1200 },
+      { "type": "image", "thumb": "thmbs/faddy-magazine/03.webp", "full": "img/faddy-magazine/03.webp", "alt": "FADDY MAGAZINE", "width": 247, "height": 350, "dataW": 848, "dataH": 1200 }
+    ]
+  },
+    {
+    "id": "the-face-pusha-t",
+    "category": "overview",
+    "title": "THE FACE X PUSHA T",
+    "line1": "Quinn Batley",
+    "line2": "",
+    "media": [
+      { "type": "image", "thumb": "thmbs/the-face-pusha-t/01.webp", "full": "img/the-face-pusha-t/01.webp", "alt": "THE FACE X PUSHA T", "width": 280, "height": 350, "dataW": 961, "dataH": 1200 },
+      { "type": "image", "thumb": "thmbs/the-face-pusha-t/02.webp", "full": "img/the-face-pusha-t/02.webp", "alt": "THE FACE X PUSHA T", "width": 280, "height": 350, "dataW": 960, "dataH": 1200 }
+    ]
+  },
   {
     "id": "mugler",
     "category": "overview",
@@ -62,20 +72,29 @@ window.PORTFOLIO_PROJECTS = [
     "line2": "",
     "media": [
       { "type": "image", "thumb": "thmbs/mugler/01.webp", "full": "img/mugler/01.webp", "alt": "MUGLER", "width": 280, "height": 350, "dataW": 960, "dataH": 1200 },
-      { "type": "image", "thumb": "thmbs/mugler/02.webp", "full": "img/mugler/02.webp", "alt": "MUGLER", "width": 280, "height": 350, "dataW": 960, "dataH": 1200 },
-      { "type": "image", "thumb": "thmbs/mugler/03.webp", "full": "img/mugler/03.webp", "alt": "MUGLER", "width": 280, "height": 350, "dataW": 960, "dataH": 1200 }
+      { "type": "image", "thumb": "thmbs/mugler/02.webp", "full": "img/mugler/02.webp", "alt": "MUGLER", "width": 280, "height": 350, "dataW": 960, "dataH": 1200 }
     ]
   },
-  {
-    "id": "faddy-magazine",
+    {
+    "id": "la-garconnes",
     "category": "overview",
-    "title": "FADDY MAGAZINE",
-    "line1": "Tugan Temizkan",
-    "line2": "Fall 2023",
+    "title": "LA GARÇONNES",
+    "line1": "Sophia Aerts",
+    "line2": "",
     "media": [
-      { "type": "image", "thumb": "thmbs/faddy-magazine/01.webp", "full": "img/faddy-magazine/01.webp", "alt": "FADDY MAGAZINE", "width": 247, "height": 350, "dataW": 848, "dataH": 1200 },
-      { "type": "image", "thumb": "thmbs/faddy-magazine/02.webp", "full": "img/faddy-magazine/02.webp", "alt": "FADDY MAGAZINE", "width": 247, "height": 350, "dataW": 848, "dataH": 1200 },
-      { "type": "image", "thumb": "thmbs/faddy-magazine/03.webp", "full": "img/faddy-magazine/03.webp", "alt": "FADDY MAGAZINE", "width": 247, "height": 350, "dataW": 848, "dataH": 1200 }
+      { "type": "image", "thumb": "thmbs/la-garconnes/01.webp", "full": "img/la-garconnes/01.webp", "alt": "LA GARÇONNES", "width": 237, "height": 350, "dataW": 812, "dataH": 1200 },
+      { "type": "image", "thumb": "thmbs/la-garconnes/02.webp", "full": "img/la-garconnes/02.webp", "alt": "LA GARÇONNES", "width": 235, "height": 350, "dataW": 806, "dataH": 1200 }
+    ]
+  },
+    {
+    "id": "carhartt",
+    "category": "overview",
+    "title": "CARHARTT",
+    "line1": "T-bone Fletcher",
+    "line2": "",
+    "media": [
+      { "type": "image", "thumb": "thmbs/carhartt/01.webp", "full": "img/carhartt/01.webp", "alt": "CARHARTT", "width": 280, "height": 350, "dataW": 960, "dataH": 1200 },
+      { "type": "image", "thumb": "thmbs/carhartt/02.webp", "full": "img/carhartt/02.webp", "alt": "CARHARTT", "width": 280, "height": 350, "dataW": 960, "dataH": 1200 }
     ]
   },
   {
@@ -90,16 +109,15 @@ window.PORTFOLIO_PROJECTS = [
       { "type": "image", "thumb": "thmbs/kith-x-adidas/03.webp", "full": "img/kith-x-adidas/03.webp", "alt": "KITH X ADIDAS", "width": 264, "height": 350, "dataW": 906, "dataH": 1200 }
     ]
   },
-  {
-    "id": "the-face-pusha-t",
+    {
+    "id": "supreme-them-magazine",
     "category": "overview",
-    "title": "THE FACE X PUSHA T",
-    "line1": "Quinn Batley",
+    "title": "SUPREME X THEM MAGAZINE",
+    "line1": "Tim Buol",
     "line2": "",
     "media": [
-      { "type": "image", "thumb": "thmbs/the-face-pusha-t/01.webp", "full": "img/the-face-pusha-t/01.webp", "alt": "THE FACE X PUSHA T", "width": 280, "height": 350, "dataW": 960, "dataH": 1200 },
-      { "type": "image", "thumb": "thmbs/the-face-pusha-t/02.webp", "full": "img/the-face-pusha-t/02.webp", "alt": "THE FACE X PUSHA T", "width": 162, "height": 350, "dataW": 555, "dataH": 1200 },
-      { "type": "image", "thumb": "thmbs/the-face-pusha-t/03.webp", "full": "img/the-face-pusha-t/03.webp", "alt": "THE FACE X PUSHA T", "width": 280, "height": 350, "dataW": 961, "dataH": 1200 }
+      { "type": "image", "thumb": "thmbs/supreme-them-magazine/01.webp", "full": "img/supreme-them-magazine/01.webp", "alt": "SUPREME X THEM MAGAZINE", "width": 280, "height": 350, "dataW": 961, "dataH": 1200 },
+      { "type": "image", "thumb": "thmbs/supreme-them-magazine/02.webp", "full": "img/supreme-them-magazine/02.webp", "alt": "SUPREME X THEM MAGAZINE", "width": 280, "height": 350, "dataW": 961, "dataH": 1200 }
     ]
   },
   {
