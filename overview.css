@@ -84,7 +84,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid currentColor; outline
 #modal { touch-action: none; overscroll-behavior-y: none; }
 /* Nanase: fully opaque white lightbox background (overrides .overlay translucency) */
 #modal { background: #FFFFFF; }
-.stage { position: absolute; inset: 48px 30px 54px; overflow: hidden; touch-action: none; }
+.stage { position: absolute; inset: var(--header-height) 30px 54px; overflow: hidden; touch-action: none; }
 .modal-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; user-select: none; -webkit-user-select: none; }
 .modal-footer button { font-size: 22px; min-width: 44px; min-height: 44px; text-align: right; }
 @media (max-width: 767px) {
@@ -97,7 +97,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid currentColor; outline
     --header-top: max(12px, env(safe-area-inset-top));
     --header-pad-bottom: 8px;
   }
-  .stage { inset: 48px 0 64px; }
+  .stage { inset: var(--header-height) 0 64px; }
 }
 
 /* reduced motion設定時はhoverのscale transitionを無効化 */
