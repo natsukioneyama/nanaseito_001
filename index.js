@@ -19,7 +19,9 @@
     // 'side-by-side' applies to two-image projects only; anything else keeps the default.
     const sideBySide = entry.layout === 'side-by-side' && media.length === 2;
     if (entry.layout && !sideBySide) console.warn(`featured-data.js: layout "${entry.layout}" ignored for "${entry.id}" (needs 'side-by-side' with exactly 2 images)`);
-    return {project, media, sideBySide};
+    // `heading`: per-project first caption line; '' / omitted / non-string -> none.
+    const heading = typeof entry.heading === 'string' ? entry.heading.trim() : '';
+    return {project, media, sideBySide, heading};
   }).filter(Boolean);
   // Lightbox sequence: every featured image, top to bottom, in display order.
   const sequence = featured.flatMap(({project, media}) => media.map(m => ({project, media: m})));
@@ -30,9 +32,10 @@
   const videos = new Set(), visibleVideos = new Set();
 
   // ---- FEATURED PROJECT ----
-  function featuredCaption(target, project) {
+  // An empty heading is skipped below, leaving just title + credit (no blank line).
+  function featuredCaption(target, {project, heading}) {
     target.replaceChildren();
-    [['fp-kicker', 'FEATURED PROJECT'], ['fp-title', project.title], ['fp-credit', project.line1]].forEach(([cls, text]) => {
+    [['fp-kicker', heading], ['fp-title', project.title], ['fp-credit', project.line1]].forEach(([cls, text]) => {
       if (!text) return;
       const line = document.createElement('span'); line.className = cls; line.textContent = text; target.append(line);
     });
@@ -87,7 +90,7 @@
   function setActiveProject(i) {
     if (i === activeProject || !featured[i]) return;
     activeProject = i;
-    featuredCaption(railCaption, featured[i].project);
+    featuredCaption(railCaption, featured[i]);
   }
   // The observer watches a thin band at 50-51% of the viewport height; the decision line
   // is the band's lower edge, so a block that has just entered the band counts as passed.

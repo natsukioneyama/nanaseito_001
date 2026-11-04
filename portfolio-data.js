@@ -29,9 +29,9 @@ window.PORTFOLIO_PROJECTS = [
     ]
   },
   {
-    "id": "id-magazine",
+    "id": "i-D",
     "category": "overview",
-    "title": "iD MAGAZINE",
+    "title": "i-D",
     "line1": "Jiro Konami",
     "line2": "",
     "media": [
