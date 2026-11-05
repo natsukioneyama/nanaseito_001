@@ -113,7 +113,7 @@ window.PORTFOLIO_PROJECTS = [
     "id": "supreme-them-magazine",
     "category": "overview",
     "title": "SUPREME X THEM MAGAZINE",
-    "line1": "Tim Buol",
+    "line1": "Hanna Moon",
     "line2": "",
     "media": [
       { "type": "image", "thumb": "thmbs/supreme-them-magazine/01.webp", "full": "img/supreme-them-magazine/01.webp", "alt": "SUPREME X THEM MAGAZINE", "width": 280, "height": 350, "dataW": 961, "dataH": 1200 },

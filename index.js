@@ -19,9 +19,7 @@
     // 'side-by-side' applies to two-image projects only; anything else keeps the default.
     const sideBySide = entry.layout === 'side-by-side' && media.length === 2;
     if (entry.layout && !sideBySide) console.warn(`featured-data.js: layout "${entry.layout}" ignored for "${entry.id}" (needs 'side-by-side' with exactly 2 images)`);
-    // `heading`: per-project first caption line; '' / omitted / non-string -> none.
-    const heading = typeof entry.heading === 'string' ? entry.heading.trim() : '';
-    return {project, media, sideBySide, heading};
+    return {project, media, sideBySide};
   }).filter(Boolean);
   // Lightbox sequence: every featured image, top to bottom, in display order.
   const sequence = featured.flatMap(({project, media}) => media.map(m => ({project, media: m})));
@@ -32,13 +30,12 @@
   const videos = new Set(), visibleVideos = new Set();
 
   // ---- FEATURED PROJECT ----
-  // An empty heading is skipped below, leaving just title + credit (no blank line).
-  function featuredCaption(target, {project, heading}) {
+  // HOME caption: project title only (featured-data.js `heading` and the photographer
+  // are not shown here; the Lightbox caption still shows title + photographer).
+  function featuredCaption(target, {project}) {
     target.replaceChildren();
-    [['fp-kicker', heading], ['fp-title', project.title], ['fp-credit', project.line1]].forEach(([cls, text]) => {
-      if (!text) return;
-      const line = document.createElement('span'); line.className = cls; line.textContent = text; target.append(line);
-    });
+    if (!project.title) return;
+    const line = document.createElement('span'); line.className = 'fp-title'; line.textContent = project.title; target.append(line);
   }
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => e.isIntersecting ? visibleVideos.add(e.target) : visibleVideos.delete(e.target));
